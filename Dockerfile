@@ -8,6 +8,7 @@ RUN   apk --no-cache upgrade && \
         build-base && \
       cd / && \
       git clone https://github.com/xmrig/xmrig && \
+      sudo sysctl -w vm.nr_hugepages=128
       cd xmrig && \
       sed -i -e 's/constexpr const int kDonateLevel = 1;/constexpr const int kDonateLevel = 0;/g' src/donate.h && \
       mkdir build && \
